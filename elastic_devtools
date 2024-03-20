@@ -1,0 +1,53 @@
+GET iot_sensor/_search
+ 
+ 
+PUT iot_sensor/_doc/1
+{
+      "Mem-used": 340,
+      "Disk_read": 4304,
+      "Disk_writ": 0,
+      "Mem_free": 658,
+      "Mem_buff": 0,
+      "Mem_cach": " ",
+      "CPU_idl": 66,
+      "CPU_usr": 56,
+      "CPU_sys": -2,
+      "CPU_stl": 0,
+      "CPU_wai": 0,
+      "Net_recv": 403,
+      "Net_send": 349,
+      "Version": "0.0.0",
+      "uptime": 67,
+      "proc_run": 7,
+      "proc_blk": 5,
+      "proc_new": 1,
+      "date": "2020-10-25",
+      "time": "07:54:30",
+      "date_time": "2020-10-25 07:54:30",
+      "1m": 0.01815832366300485,
+      "5m": 0.42288761860689816,
+      "15m": 0.8230923830123971,
+      "mac_address": "18:67:b0:7c:00:c2:b1"
+   }
+ 
+ 
+DELETE iot_sensor
+ 
+PUT iot_sensor
+{
+   "settings": {
+      "index": {
+         "number_of_shards": 20,
+         "number_of_replicas": 1
+      }
+   },
+   "mappings": {
+      "properties": {
+         "date_time": {
+            "type": "date",
+            "format": "yyyy-MM-dd HH:mm:ss" ,
+            "index": true
+         }
+      }
+   }
+}
